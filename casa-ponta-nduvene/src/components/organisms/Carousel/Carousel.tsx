@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import Image from 'next/image'
-import { Slide } from '../../../../types/generics'
+import { Slide } from 'types/generics'
 import styles from './Carousel.module.css'
 import { motion } from 'framer-motion'
 
