@@ -1,10 +1,13 @@
 
 import type { AppProps } from 'next/app';
 import 'assets/styles/globals.css'
+import { AppContext } from 'context/AppContext';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <AppContext>
+    <Component {...pageProps} />
+  </AppContext>
 }
 
 export default MyApp
