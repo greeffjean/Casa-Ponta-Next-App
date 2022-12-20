@@ -3,4 +3,7 @@
   width: 100vw;
   background-color: black;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

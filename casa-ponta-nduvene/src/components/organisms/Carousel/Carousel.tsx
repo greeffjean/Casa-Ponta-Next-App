@@ -17,21 +17,22 @@ export const Carousel: FC<CarouselProps> = ({
     const [activeIdx, setActiveIdx] = useState(0)
 
     useEffect(() => {
+        let timer: NodeJS.Timeout
         if (activeIdx === state.slides.length) setActiveIdx(0)
-        if (activeIdx !== state.slides.length) setTimeout(() => {
-            if (activeIdx === state.slides.length) {
-                setActiveIdx(0)
-            }
-            else setActiveIdx(activeIdx + 1)
-        }, state.loopTimer)
+        if (activeIdx !== state.slides.length) {
+            timer = setTimeout(() => {
+                setActiveIdx(activeIdx + 1)
+            }, state.loopTimer)
+        }
 
+        return () => clearTimeout(timer)
     }, [activeIdx])
+
 
     return (
         <>
             {
                 state.slides.map((image, index) => {
-
                     const reset = activeIdx === 0 && index !== 0
                     const isActive = activeIdx === index
                     const wasActive = activeIdx > index
@@ -44,6 +45,9 @@ export const Carousel: FC<CarouselProps> = ({
                             initial={{
                                 x: calcX
                             }}
+                            transition={{
+                                duration: 0.5
+                            }}
                             animate={{
                                 width: '100vw',
                                 height: '100vh',
@@ -53,6 +57,11 @@ export const Carousel: FC<CarouselProps> = ({
 
                             }}>
                             <motion.h2
+                                initial={{
+                                    opacity: 0,
+                                    rotate: -25,
+                                    y: -10,
+                                }}
                                 transition={{
                                     delay: .3,
                                     duration: .3
@@ -72,6 +81,5 @@ export const Carousel: FC<CarouselProps> = ({
                 )
             }
         </>
-
     )
 }
