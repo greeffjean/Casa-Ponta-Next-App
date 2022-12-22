@@ -1,8 +1,11 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useContext } from 'react';
 import Image from 'next/image'
 import { Slide } from 'types/generics'
 import styles from './Carousel.module.css'
 import { motion } from 'framer-motion'
+import { Context } from 'context/AppContext';
+import { sections } from 'enums/pageSections';
+import { pageSectionStates } from 'enums/appStates';
 
 interface CarouselProps {
     state: {
@@ -15,18 +18,23 @@ export const Carousel: FC<CarouselProps> = ({
     state
 }) => {
     const [activeIdx, setActiveIdx] = useState(0)
+    const { appScrollState } = useContext(Context)
+
+    const runCarousel = appScrollState[sections.HERO] === pageSectionStates.ACTIVE
 
     useEffect(() => {
         let timer: NodeJS.Timeout
-        if (activeIdx === state.slides.length) setActiveIdx(0)
-        if (activeIdx !== state.slides.length) {
-            timer = setTimeout(() => {
-                setActiveIdx(activeIdx + 1)
-            }, state.loopTimer)
+        if (runCarousel) {
+            if (activeIdx === state.slides.length) setActiveIdx(0)
+            if (activeIdx !== state.slides.length) {
+                timer = setTimeout(() => {
+                    setActiveIdx(activeIdx + 1)
+                }, state.loopTimer)
+            }
         }
 
         return () => clearTimeout(timer)
-    }, [activeIdx])
+    }, [activeIdx, runCarousel])
 
 
     return (
@@ -76,7 +84,6 @@ export const Carousel: FC<CarouselProps> = ({
                             <Image className={styles.slide} layout='fill' alt={image.alt} src={image.src} />
                         </motion.div>
                     )
-
                 }
                 )
             }

@@ -1,14 +1,21 @@
-import { createContext, FC, useState } from "react"
+import { sections } from "enums/pageSections"
+import { createContext, Dispatch, FC, SetStateAction, useState } from "react"
 import { AppContextProps, AppScrollStateProps } from "./types"
 
+interface AppScrollState {
+    [sections.HERO]: string
+}
+export interface ContextProps {
+    appScrollState: AppScrollState
+    setAppScrollState: Dispatch<SetStateAction<AppScrollStateProps>>
+}
 
-const Context = createContext({})
+export const Context: React.Context<ContextProps> = createContext({} as ContextProps)
 Context.displayName = 'AppContext'
-
 
 export const AppContext: FC<AppContextProps> = ({ children }) => {
     const [appScrollState, setAppScrollState] = useState<AppScrollStateProps>({
-        Hero: 'active'
+        [sections.HERO]: 'active'
     })
 
     return (
