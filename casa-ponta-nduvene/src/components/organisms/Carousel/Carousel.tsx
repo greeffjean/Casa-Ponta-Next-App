@@ -65,6 +65,7 @@ export const Carousel: FC<CarouselProps> = ({
 
                             }}>
                             <motion.h2
+                                className='responsive-heading-large'
                                 initial={{
                                     opacity: 0,
                                     rotate: -25,

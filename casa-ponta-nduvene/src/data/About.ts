@@ -1,0 +1,6 @@
+export const state = {
+    description: 'Situated just 6km north of the coastal town of Vilanculos, Mozambique on the Baía do Bazaruto, Casa Ponta Duvini is a stylish holiday rental with a laid-back atmosphere. Located within a secure bush complex, the house has immediate access onto a small and secluded mangrove-fringed bay where local fishermen set sail daily. Our thatched house is serviced daily by two of our beloved staff and has been designed with a careful eye for detail, sleeping 8 among four generous airconditioned bedrooms with 4 bathrooms, 3 of which are ensuite. <br/><br /> We have a lush tropical garden, swimming pool and braai area, as well as an extensive covered deck where early morning coffees and afternoon beers are accompanied by views of the sought after Bazaruto Archipelago and Marine National Park. <br/><br /> We also have our very own traditional dhow, moored in the bay and a motorboat available to rent when you feel like venturing out to the islands or fishing.',
+    heading: 'About',
+    wallpaper: '/images/about-wallpaper.png',
+    alt: 'About section wallpaper'
+}

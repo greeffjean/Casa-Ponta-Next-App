@@ -1,0 +1,9 @@
+.responsive-heading-large {
+  font-size: 10rem;
+}
+
+@media screen and (max-width: 800px) {
+  .responsive-heading-large {
+    font-size: 5rem;
+  }
+}

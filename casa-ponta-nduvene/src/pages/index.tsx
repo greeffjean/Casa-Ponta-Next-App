@@ -1,3 +1,4 @@
+import { About } from 'components/templates/About/About';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Hero } from '../components/organisms/Hero/Hero';
@@ -9,6 +10,7 @@ const Home: NextPage = () => {
         <title>Casa Ponta Duvini</title>
       </Head>
       <Hero />
+      <About />
     </>
   )
 }

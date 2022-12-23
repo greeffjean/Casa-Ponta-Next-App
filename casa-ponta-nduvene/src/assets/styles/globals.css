@@ -1,5 +1,11 @@
-@import './colors.css';
+@import "./colors.css";
+@import "./typography.css";
+@import "./layout.css";
 
 body {
   margin: 0px;
+}
+
+p {
+  font-size: 2rem;
 }

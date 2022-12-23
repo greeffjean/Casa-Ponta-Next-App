@@ -1,9 +1,11 @@
+import { pageSectionStates } from "enums/appStates"
 import { sections } from "enums/pageSections"
 import { createContext, Dispatch, FC, SetStateAction, useState } from "react"
 import { AppContextProps, AppScrollStateProps } from "./types"
 
 interface AppScrollState {
-    [sections.HERO]: string
+    [sections.HERO]: string,
+    [sections.ABOUT]: string,
 }
 export interface ContextProps {
     appScrollState: AppScrollState
@@ -15,7 +17,8 @@ Context.displayName = 'AppContext'
 
 export const AppContext: FC<AppContextProps> = ({ children }) => {
     const [appScrollState, setAppScrollState] = useState<AppScrollStateProps>({
-        [sections.HERO]: 'active'
+        [sections.HERO]: pageSectionStates.ACTIVE,
+        [sections.ABOUT]: pageSectionStates.IDLE,
     })
 
     return (

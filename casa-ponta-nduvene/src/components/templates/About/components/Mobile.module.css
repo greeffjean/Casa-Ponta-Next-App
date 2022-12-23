@@ -1,0 +1,17 @@
+.descriptionWrapper {
+  margin: 40px;
+  padding: 40px 30px;
+  background-color: var(--secondary);
+  color: white;
+}
+
+.descriptionWrapper :global h3 {
+  font-weight: bold;
+  margin: 0px;
+  font-family: "Playfair Display", serif;
+}
+
+.descriptionWrapper :global p {
+  font-family: "Source Sans Pro", Arial;
+  font-weight: 300;
+}

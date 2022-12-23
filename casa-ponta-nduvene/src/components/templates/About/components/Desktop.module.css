@@ -1,0 +1,42 @@
+
+.imageWrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  z-index: -1;
+}
+
+.descriptionWrapper {
+  width: 100vw;
+  display: flex;
+}
+
+.descriptionWrapper :global h3 {
+  font-weight: bold;
+  margin: 0px;
+  font-family: "Playfair Display", serif;
+}
+
+.headingWrapperLeft {
+  padding-top: 60px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--secondary);
+}
+
+.headingWrapperRight :global h3 {
+  transform: translateX(-60px);
+}
+
+.headingWrapperRight {
+  padding: 60px;
+  background-color: var(--secondary);
+  color: white;
+  flex: 1;
+}
+
+.descriptionWrapper :global p {
+  font-family: "Source Sans Pro", Arial;
+  font-weight: 300;
+}
